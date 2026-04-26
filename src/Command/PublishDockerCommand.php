@@ -15,11 +15,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 final class PublishDockerCommand extends Command
 {
-    public function __construct(private string $projectRoot)
-    {
-        parent::__construct();
-    }
-
     protected function configure(): void
     {
         $this->addOption(
@@ -35,13 +30,14 @@ final class PublishDockerCommand extends Command
     {
         $runtime = $input->getOption('runtime');
         $source = __DIR__ . '/../../stubs/' . $runtime;
+        $projectRoot = getcwd();
 
         if (!is_dir($source)) {
             $output->writeln("<error>Unknown runtime: $runtime. Use frankenphp or phpfpm</error>");
             return Command::FAILURE;
         }
 
-        $this->copyDirectory($source, $this->projectRoot);
+        $this->copyDirectory($source, $projectRoot);
         $output->writeln("<info>Docker files published for $runtime runtime.</info>");
         return Command::SUCCESS;
     }
