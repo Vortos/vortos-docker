@@ -1,0 +1,14 @@
+{
+    "name": "vortos/vortos-docker",
+    "description": "Docker environment for Vortos applications — FrankenPHP and php-fpm",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vortos\\Docker\\": "src/"
+        }
+    }
+}
