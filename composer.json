@@ -1,14 +1,16 @@
 {
     "name": "vortos/vortos-docker",
-    "description": "Docker environment for Vortos applications — FrankenPHP and php-fpm",
+    "description": "Vortos Docker — publish Docker environment files to your project",
     "type": "library",
     "license": "MIT",
-    "require": {
-        "php": ">=8.2"
-    },
     "autoload": {
         "psr-4": {
-            "Vortos\\Docker\\": "src/"
+            "Vortos\\Docker\\": ""
         }
+    },
+    "require": {
+        "php": ">=8.2",
+        "vortos/vortos-foundation": "^1.0",
+        "symfony/console": "^7.3"
     }
 }
